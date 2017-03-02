@@ -41,6 +41,13 @@ describe('test to outliers', () => {
     let res = outliers([1, 2, 1, 2, 3, 3, 2, 1, 2, 3, 100], 3, 1, 1, 5);
     assert(res[1] === 3, res);
   });
+  it('should filter when the mu is a serie of time', () => {
+    const mu = function(point, dim) {
+      return point[0];
+    };
+    let res = outliers([1, 2, 1, 2, 3, 3, 2, 1, 2, 3, 100], 3, 1, 1, mu);
+    assert(res[1] === 3, res);
+  });
 
   it('should return a array empty if a array is passed', () => {
     let res = outliers();
