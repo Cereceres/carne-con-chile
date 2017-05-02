@@ -1,6 +1,5 @@
 # outliers-lizia
 Simple librery to remove outliers from data
-![logo](./carne-con-chile.jpg)
 
 ## Installation
 
