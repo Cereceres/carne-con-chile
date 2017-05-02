@@ -1,0 +1,30 @@
+{
+  "name": "outliers-lizia",
+  "version": "0.0.1",
+  "description": "get a array without outliers",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cereceres/carne-con-chile.git"
+  },
+  "keywords": [
+    "outliers",
+    "removing"
+  ],
+  "author": "Jesus Cereceres",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cereceres/carne-con-chile/issues"
+  },
+  "homepage": "https://github.com/Cereceres/carne-con-chile#readme",
+  "devDependencies": {
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "mocha": "^3.2.0",
+    "standard": "^9.0.1"
+  }
+}
