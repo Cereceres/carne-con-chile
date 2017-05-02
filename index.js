@@ -1,36 +1,29 @@
 'use strict';
 
 const getStats = require('./lib/getStats');
+const completeData = require('./lib/completeData');
+const elipse = require('./lib/elipse-eq');
 
-const outliers = function(array, dim, numSigma, dg, timeSeries) {
-  dg = dg || 0;
-  array = array || [];
-  if (!array.length) return array;
 
-  numSigma = numSigma || 1.645;
+const outliers = function (arrayOfData = [], dim = 1, numSigma = 1.645, dg = 0, timeSeries) {
+  if (arrayOfData.length < 2) return arrayOfData;
+  let array = arrayOfData.slice(0);
+  const numDatas = Math.ceil(array.length / dim);
 
-  !Array.isArray(numSigma) && (numSigma = [numSigma]);
+  array = completeData(array, numDatas, dim);
 
-  !dim && (dim = 1);
 
   const stats = getStats(array, dim, dg, timeSeries);
 
   const length = array.length;
-  const _numSigma = [];
   let point;
+  let SD;
+  arrayOfData.forEach((item, index) => {
+    if (index % dim) return;
 
-  array = array.filter((item, index) => {
-    _numSigma[index % dim] = _numSigma[index % dim] ||
-    numSigma[index % numSigma.length] * stats.sigma[index % dim];
-
-    if (Array.isArray(stats.mu)) {
-      return Math.abs(item - stats.mu[index % stats.mu.length]) <=
-    _numSigma[index % _numSigma.length];
-    }
-    if (index % dim) point = array.slice(index, dim);
-    console.log('point', point);
-    return Math.abs(item - stats.mu(point, index % dim)) <=
-    _numSigma[index % _numSigma.length];
+    point = array.slice(index, index + dim);
+    SD = elipse(point, stats);
+    if (SD > numSigma) array.splice(index, dim);
   });
 
   if (array.length !== length) return outliers(array, dim, numSigma, dg, timeSeries);
