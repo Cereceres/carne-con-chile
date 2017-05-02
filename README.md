@@ -33,7 +33,7 @@ numberDatum = Number - is the index of datum in data sets given, numberDatum is 
 
 ### outliers-lizia.getStats(data, [dim = 1, dg = 0, timeSeries])
 
-arrayOfData = [x_{1}, x_{2}, x_{3}, ...,x_{NxD}] - Data to be analysed and remove the outliers, 
+data = [x_{1}, x_{2}, x_{3}, ...,x_{NxD}] - Data to be analysed and remove the outliers, 
 where N is the number of observvations and D the dimension of every observation.
 
 dim = Number - Default value is 1, and is the number of dimensions of observations.
