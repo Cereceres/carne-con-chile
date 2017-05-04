@@ -66,3 +66,26 @@ datum = [x_1,...,x_D]
 index = Number - is the index of datum, index is a number in range [0,D-1]. This function is evaluated D times.
 
 numberDatum = Number - is the index of datum in data sets given, numberDatum is a number in range [0,N-1].
+
+
+## How does it remove to higth dimension data (Elipse)
+
+Example of two dimensions:
+
+datum = [x_1, x_2]
+
+is removed if:
+
+(x_1- E_1)^2/sigma_1^2 + (x_2- E_2)^2/sigma_2^2 > numSigma.
+
+This because independence of observations is considered:
+
+
+P(A & B) = P(A) P(B) ≈ e^[-(x_1- E_1)^2/sigma_1^2]*e^[-(x_2- E_2)^2/sigma_2^2] 
+    
+    = e^[-(x_1- E_1)^2/sigma_1^2-(x_1- E_1)^2/sigma_1^2)]
+
+the value default is obvius bacause factor sqrt(2) in normal distrubution and generalization to higther dimension too.
+ 
+** & = intersection
+   U = union
