@@ -72,20 +72,20 @@ numberDatum = Number - is the index of datum in data sets given, numberDatum is 
 
 Example of two dimensions:
 
-datum = [x_1, x_2]
+    datum = [x_1, x_2]
 
-is removed if:
+    is removed if:
 
-(x_1- E_1)^2/sigma_1^2 + (x_2- E_2)^2/sigma_2^2 > numSigma.
+    (x_1- E_1)^2/sigma_1^2 + (x_2- E_2)^2/sigma_2^2 > numSigma 
 
-This because independence of observations is considered:
+    This because independence of observations is considered:
 
 
-P(A & B) = P(A) P(B) ≈ e^[-(x_1- E_1)^2/sigma_1^2]*e^[-(x_2- E_2)^2/sigma_2^2] 
+    P(A & B) = P(A) P(B) ≈ e^[-(x_1- E_1)^2/sigma_1^2]*e^[-(x_2- E_2)^2/sigma_2^2] 
     
     = e^[-(x_1- E_1)^2/sigma_1^2-(x_1- E_1)^2/sigma_1^2)]
 
-the value default is obvius bacause factor sqrt(2) in normal distrubution and generalization to higther dimension too.
+    the value default is obvius bacause factor sqrt(2) in normal distrubution and generalization to higther dimension too.
  
-** & = intersection
-   U = union
+    ** & = intersection
+    U = union
